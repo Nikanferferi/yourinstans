@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyInstants Knappar</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <iframe width="110" height="200" src="https://www.myinstants.com/instant/funkytown-low-quality-15164/embed/" frameborder="0" scrolling="no"></iframe>
+
+  <iframe width="110" height="200" src="https://www.myinstants.com/instant/nothing-beats-a-jet2-holiday-41694/embed/" frameborder="0" scrolling="no"></iframe>
+  
+ 
+
+
+</body>
+</html>
