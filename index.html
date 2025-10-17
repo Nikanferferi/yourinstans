@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Triolingo Akademi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <h1>Triolingo Akademi</h1>
+        <p>
+          Din allt-i-ett-app för att bemästra musik, matematik och språk –
+          inspirerad av Duolingos spelifierade lärande men anpassad för tre
+          kreativa områden.
+        </p>
+        <ul class="hero__highlights">
+          <li>Dagliga mikro-lektioner</li>
+          <li>Personlig läroplan</li>
+          <li>Firebase-inloggning med Google eller e-post</li>
+        </ul>
+      </div>
+      <img
+        class="hero__illustration"
+        src="https://cdn.jsdelivr.net/gh/edent/SuperTinyIcons/images/svg/google.svg"
+        alt="Triolingo Akademi illustration"
+      />
+    </header>
+
+    <main>
+      <section id="auth-section" class="card card--auth">
+        <h2>Logga in</h2>
+        <p>
+          Skapa ett konto eller logga in för att spara din progression. Du kan
+          alltid byta mellan Google-inloggning eller e-post och lösenord.
+        </p>
+        <div id="auth-feedback" class="auth-feedback" aria-live="polite"></div>
+        <div class="auth__actions">
+          <button id="google-sign-in" class="button button--google">
+            Logga in med Google
+          </button>
+          <div class="divider">
+            <span>eller</span>
+          </div>
+          <form id="email-auth-form" class="auth-form">
+            <label class="field">
+              <span>E-post</span>
+              <input type="email" id="auth-email" required />
+            </label>
+            <label class="field">
+              <span>Lösenord</span>
+              <input type="password" id="auth-password" minlength="6" required />
+            </label>
+            <div class="auth-form__actions">
+              <button type="submit" class="button">Logga in</button>
+              <button type="button" id="sign-up" class="button button--ghost">
+                Skapa konto
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="dashboard" class="card card--hidden">
+        <header class="dashboard__header">
+          <div>
+            <p class="dashboard__welcome">Hej, <span id="user-name">elev</span>!</p>
+            <p class="dashboard__streak">
+              🔥 <span id="streak-count">0</span> dagars svit
+            </p>
+          </div>
+          <button id="sign-out" class="button button--ghost">Logga ut</button>
+        </header>
+
+        <section class="progress">
+          <h2>Dina spår</h2>
+          <div id="track-list" class="track-grid"></div>
+        </section>
+
+        <section id="practice-section" class="practice card card--sub">
+          <div class="practice__intro">
+            <h3>Starta din nästa lektion</h3>
+            <p id="practice-description">
+              Välj ett spår för att komma igång med en fokuserad mikrolektion.
+            </p>
+          </div>
+          <div id="practice-area" class="practice__body"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Triolingo Akademi &copy; 2025. Byggd med Firebase och kärlek till lärande.</p>
+    </footer>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
