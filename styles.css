@@ -1,0 +1,99 @@
+:root {
+  --bg1: #86d4f8;
+  --bg2: #c3f5ff;
+  --ground: #d2b48c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(var(--bg1), var(--bg2));
+  color: #14323f;
+}
+.app-shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.sub { margin-top: .2rem; opacity: .8; }
+.top-actions { display: flex; gap: .5rem; }
+button { cursor: pointer; }
+.panel {
+  background: #ffffffbd;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.auth-panel form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: .75rem;
+  align-items: end;
+}
+.auth-panel input,.auth-panel select { width: 100%; }
+.game-area { position: relative; display: flex; justify-content: center; }
+canvas {
+  width: min(92vw, 420px);
+  height: min(78vh, 720px);
+  border: 2px solid #1d606f;
+  border-radius: 10px;
+  background: transparent;
+  touch-action: manipulation;
+}
+.hud {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  background: #0000007d;
+  color: white;
+  padding: .35rem .75rem;
+  border-radius: 999px;
+  z-index: 2;
+  font-size: .9rem;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 4px #000;
+  pointer-events: none;
+  font-size: 1.2rem;
+}
+.fullscreen {
+  position: fixed;
+  inset: 0;
+  background: #091d31f5;
+  color: #fff;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+}
+.fullscreen-inner {
+  width: min(800px, 92vw);
+  height: min(85vh, 860px);
+  background: #0f2a45;
+  border-radius: 12px;
+  padding: 1rem;
+  overflow: auto;
+}
+.hidden { display: none !important; }
+dialog { border-radius: 10px; border: none; min-width: 300px; }
+label { display: grid; gap: .35rem; }
+@media (max-width: 700px) {
+  .auth-panel form { grid-template-columns: 1fr; }
+  .hud { font-size: .78rem; }
+}
