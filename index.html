@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flappy Bird Cloud Edition</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <h1>Flappy Bird Cloud</h1>
+        <p class="sub">Desktop + Mobile • Cloud profile + Leaderboard</p>
+      </div>
+      <div class="top-actions">
+        <button id="settingsBtn">Settings</button>
+        <button id="leaderboardBtn">Leaderboard</button>
+        <button id="adminBtn">Admin</button>
+      </div>
+    </header>
+
+    <section id="authPanel" class="panel auth-panel">
+      <h2>Log in to sync score (cloud)</h2>
+      <p>Enter a profile name to create/login. Data is synced to the app's local cloud table (<code>profiles</code> simulation).</p>
+      <form id="loginForm">
+        <label>
+          Username
+          <input id="username" maxlength="24" required placeholder="Player name" />
+        </label>
+        <label>
+          Device
+          <select id="deviceMode" required>
+            <option value="">Which device are you on?</option>
+            <option value="desktop">Laptop / Desktop</option>
+            <option value="mobile">Mobile / Tablet</option>
+            <option value="auto">Auto detect</option>
+          </select>
+        </label>
+        <button type="submit">Login & Play</button>
+      </form>
+    </section>
+
+    <section class="game-area">
+      <div id="hud" class="hud hidden">
+        <span>Player: <strong id="hudPlayer">-</strong></span>
+        <span>Score: <strong id="hudScore">0</strong></span>
+        <span>Best: <strong id="hudBest">0</strong></span>
+      </div>
+      <canvas id="gameCanvas" width="420" height="720" aria-label="Flappy Bird game"></canvas>
+      <div id="overlay" class="overlay hidden"></div>
+    </section>
+  </main>
+
+  <dialog id="settingsDialog">
+    <h3>Settings</h3>
+    <label><input type="checkbox" id="soundToggle" checked /> Sound</label>
+    <label><input type="checkbox" id="animToggle" checked /> Animations</label>
+    <label><input type="checkbox" id="effectsToggle" checked /> Background effects</label>
+    <label>
+      Theme
+      <select id="themeSelect">
+        <option value="classic">Classic</option>
+        <option value="sunset">Sunset</option>
+        <option value="night">Night</option>
+      </select>
+    </label>
+    <button id="closeSettings">Close</button>
+  </dialog>
+
+  <section id="leaderboardView" class="fullscreen hidden" aria-label="Leaderboard">
+    <div class="fullscreen-inner">
+      <h2>Global Leaderboard</h2>
+      <p>Top scores from all players in profiles table</p>
+      <ol id="leaderboardList"></ol>
+      <button id="closeLeaderboard">Back to Game</button>
+    </div>
+  </section>
+
+  <dialog id="adminDialog">
+    <h3>Admin Panel</h3>
+    <div id="adminGate">
+      <p>Enter admin code</p>
+      <input id="adminCode" type="password" inputmode="numeric" placeholder="Code" />
+      <button id="unlockAdmin">Unlock</button>
+    </div>
+    <div id="adminTools" class="hidden">
+      <p>Admin controls:</p>
+      <ul>
+        <li><button id="adminResetCurrent">Reset current player score</button></li>
+        <li><button id="adminGiveFive">+5 to current high score</button></li>
+        <li>
+          <label>Add score to player:
+            <input id="adminTargetUser" placeholder="username" />
+          </label>
+          <input id="adminScoreDelta" type="number" value="10" />
+          <button id="adminAddScore">Apply</button>
+        </li>
+        <li><button id="adminResetAll">Reset ALL profiles</button></li>
+      </ul>
+      <p id="adminLog"></p>
+    </div>
+    <button id="closeAdmin">Close</button>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
